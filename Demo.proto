@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+message txRoadSensor {
+  //uint32 sensor_id = 1;
+  //uint64 road_id = 2;
+  //double road_pos = 3; //当前位置在该道路上多少米处(初始)
+  //uint64 start_timestamp = 4;
+  //uint64 end_timestamp = 5;//检测器数据时间
+  uint32 flow = 6;//检测到的车流量
+  //double speed = 7;//检测到的车流速
+}
+
+message txRoadSensors {
+  uint64 start_timestamp = 1;
+  uint64 end_timestamp = 2;
+  repeated txRoadSensor sensor= 3;
+  }
+  
+message txRoadSensorsRecord {
+  map<uint64, txRoadSensors> sensors =1;
+}
